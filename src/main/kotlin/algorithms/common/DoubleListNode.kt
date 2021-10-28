@@ -1,4 +1,4 @@
-package linkedlist.common
+package algorithms.common
 
 class DoubleListNode<T>(var value: T) {
     var next: DoubleListNode<T>? = null

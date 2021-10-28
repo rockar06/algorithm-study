@@ -1,7 +1,7 @@
-package linkedlist.easy
+package algorithms.easy
 
-import linkedlist.common.ListNode
-import linkedlist.easy.SolutionPalindromeLinkedList.isPalindrome
+import algorithms.common.ListNode
+import algorithms.easy.SolutionPalindromeLinkedList.isPalindrome
 
 fun main() {
     val result = isPalindrome(notPalindromeListA)

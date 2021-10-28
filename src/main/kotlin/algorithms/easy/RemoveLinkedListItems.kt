@@ -1,7 +1,7 @@
-package linkedlist.easy
+package algorithms.easy
 
-import linkedlist.common.ListNode
-import linkedlist.easy.SolutionRemoveLinkedListItems.removeElements
+import algorithms.common.ListNode
+import algorithms.easy.SolutionRemoveLinkedListItems.removeElements
 
 fun main() {
     val result = removeElements(linkedList, 6)

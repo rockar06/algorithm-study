@@ -1,7 +1,7 @@
-package linkedlist.medium
+package algorithms.medium
 
-import linkedlist.common.ListNode
-import linkedlist.medium.SolutionMergeInBetweenLinkedList.mergeInBetween
+import algorithms.common.ListNode
+import algorithms.medium.SolutionMergeInBetweenLinkedList.mergeInBetween
 
 fun main() {
     val result = mergeInBetween(linkedListA, 3, 4, linkedListC)

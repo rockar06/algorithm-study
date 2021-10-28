@@ -1,6 +1,6 @@
-package linkedlist.medium
+package algorithms.medium
 
-import linkedlist.common.ListNode
+import algorithms.common.ListNode
 
 // https://leetcode.com/problems/swapping-nodes-in-a-linked-list/
 object Solution {

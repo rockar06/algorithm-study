@@ -1,4 +1,4 @@
-package linkedlist.easy
+package algorithms.easy
 
 // https://leetcode.com/problems/two-sum/
 class TwoSumSolution {

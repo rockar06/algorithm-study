@@ -1,4 +1,4 @@
-package linkedlist.easy
+package algorithms.easy
 
 class PalindromeNumberSolution {
 

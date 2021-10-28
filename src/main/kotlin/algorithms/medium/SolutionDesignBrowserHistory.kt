@@ -1,6 +1,6 @@
-package linkedlist.medium
+package algorithms.medium
 
-import linkedlist.common.DoubleListNode
+import algorithms.common.DoubleListNode
 
 fun main() {
     val browserHistory = BrowserHistory("google")

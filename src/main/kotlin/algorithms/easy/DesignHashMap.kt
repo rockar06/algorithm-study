@@ -1,4 +1,4 @@
-package linkedlist.easy
+package algorithms.easy
 
 fun main() {
     val myHashMap = MyHashMap()

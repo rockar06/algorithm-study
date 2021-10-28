@@ -1,6 +1,6 @@
-package linkedlist.medium
+package algorithms.medium
 
-import linkedlist.common.ListNode
+import algorithms.common.ListNode
 
 // https://leetcode.com/problems/next-greater-node-in-linked-list/
 object SolutionNextGreaterNodeInLinkedList {

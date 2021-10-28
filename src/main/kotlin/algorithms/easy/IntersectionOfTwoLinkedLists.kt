@@ -1,7 +1,7 @@
-package linkedlist.easy
+package algorithms.easy
 
-import linkedlist.common.ListNode
-import linkedlist.easy.SolutionInterjection.getIntersectionNode
+import algorithms.common.ListNode
+import algorithms.easy.SolutionInterjection.getIntersectionNode
 
 fun main() {
     val result = getIntersectionNode(linkedListA, linkedListD)

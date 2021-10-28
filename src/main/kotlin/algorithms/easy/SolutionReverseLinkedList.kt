@@ -1,6 +1,6 @@
-package linkedlist.easy
+package algorithms.easy
 
-import linkedlist.common.ListNode
+import algorithms.common.ListNode
 
 object SolutionReverseLinkedList {
 
