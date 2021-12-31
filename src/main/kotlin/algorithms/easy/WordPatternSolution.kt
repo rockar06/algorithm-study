@@ -1,5 +1,6 @@
 package algorithms.easy
 
+// https://leetcode.com/problems/word-pattern/
 class WordPatternSolution {
     fun wordPattern(pattern: String, s: String): Boolean {
         val segmentedString = s.split(" ")
