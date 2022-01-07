@@ -1,27 +1,39 @@
 package algorithms.easy
 
+import kotlin.math.abs
+import kotlin.math.max
+
 // https://leetcode.com/problems/guess-number-higher-or-lower/
 // TODO: Finish solution for Guess Number exercise
 class GuessNumberSolution {
     fun guessNumber(n: Int): Int {
-        var guessNumber = n / 2
-        while (guessNumber in 1 until n) {
-            when (guess(guessNumber)) {
-                -1 -> {
-                    guessNumber -= ((n - guessNumber) / 2)
-                }
-                //1 -> { guessNumber = (n + guessNumber) / 2 }
-                1 -> {
-                    guessNumber += ((n - guessNumber) / 2)
-                }
-                0 -> return guessNumber
+/*        var guessNumber = n
+        while (guessNumber != 11) {
+            if (guess(guessNumber) == -1) {
+                guessNumber -= guessNumber / 2
+            } else if (guess(guessNumber) == 1) {
+                guessNumber += guessNumber / 2
             }
         }
-        return 0
+        return guessNumber*/
+        var guessNumber = n
+        var previousNumber = 0
+        while (guess(guessNumber) != 0) {
+            val temp = guessNumber
+            if (guess(guessNumber) == -1) {
+                guessNumber -= (abs(guessNumber - previousNumber) / 2)
+                previousNumber = temp
+            } else if (guess(guessNumber) == 1) {
+                guessNumber += (abs(guessNumber - previousNumber) / 2)
+                previousNumber = max(previousNumber, temp)
+            }
+        }
+        return guessNumber
     }
 
     fun guess(num: Int): Int {
-        val value = 4
+        //val value = Int.MAX_VALUE - 1
+        val value = 1
         return if (num < value) {
             1
         } else if (num > value) {
@@ -33,6 +45,6 @@ class GuessNumberSolution {
 }
 
 fun main() {
-    val result = GuessNumberSolution().guessNumber(10)
+    val result = GuessNumberSolution().guessNumber(Int.MAX_VALUE)
     result
 }
