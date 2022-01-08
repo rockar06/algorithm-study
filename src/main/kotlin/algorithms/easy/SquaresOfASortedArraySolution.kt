@@ -6,7 +6,7 @@ class SquaresOfASortedArraySolution {
         nums.forEachIndexed { index, item ->
             nums[index] = item * item
         }
-        applyBubbleSort(nums)
+        applySelectionSort(nums)
         return nums
     }
 
@@ -25,6 +25,28 @@ class SquaresOfASortedArraySolution {
                 }
             }
             maxIndex--
+        }
+    }
+
+    private fun applySelectionSort(nums: IntArray) {
+        var sorted = false
+        var minIndex = 0
+        var tempValue: Int
+        var lowestValueIndex = -1
+        while (sorted.not()) {
+            sorted = true
+            for (index in minIndex until nums.size) {
+                if (index == minIndex || nums[index] < nums[lowestValueIndex]) {
+                    lowestValueIndex = index
+                    sorted = false
+                }
+            }
+            if (sorted.not() && nums[minIndex] != nums[lowestValueIndex]) {
+                tempValue = nums[minIndex]
+                nums[minIndex] = nums[lowestValueIndex]
+                nums[lowestValueIndex] = tempValue
+            }
+            minIndex++
         }
     }
 }
