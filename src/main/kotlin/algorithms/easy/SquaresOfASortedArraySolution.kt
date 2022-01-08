@@ -6,7 +6,7 @@ class SquaresOfASortedArraySolution {
         nums.forEachIndexed { index, item ->
             nums[index] = item * item
         }
-        applySelectionSort(nums)
+        applyInsertionSort(nums)
         return nums
     }
 
@@ -47,6 +47,20 @@ class SquaresOfASortedArraySolution {
                 nums[lowestValueIndex] = tempValue
             }
             minIndex++
+        }
+    }
+
+    private fun applyInsertionSort(nums: IntArray) {
+        var tempValue: Int
+        var position: Int
+        for (index in 1 until nums.size) {
+            tempValue = nums[index]
+            position = index - 1
+            while (position >= 0 && nums[position] > tempValue) {
+                nums[position + 1] = nums[position]
+                position -= 1
+            }
+            nums[position + 1] = tempValue
         }
     }
 }
