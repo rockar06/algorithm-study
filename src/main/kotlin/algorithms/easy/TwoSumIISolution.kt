@@ -1,7 +1,7 @@
 package algorithms.easy
 
 class TwoSumIISolution {
-    fun twoSum(numbers: IntArray, target: Int): IntArray {
+    /*fun twoSum(numbers: IntArray, target: Int): IntArray {
         val resultArray = IntArray(2)
         numbers.forEachIndexed { index, item ->
             val secondIndex = findSecondIndex(numbers, target - item, index + 1, numbers.size - 1)
@@ -23,5 +23,20 @@ class TwoSumIISolution {
             target < nums[middle] -> findSecondIndex(nums, target, min, middle - 1)
             else -> throw IllegalStateException()
         }
+    }*/
+    fun twoSum(numbers: IntArray, target: Int): IntArray {
+        var lowIndex = 0
+        var highIndex = numbers.size - 1
+        while (lowIndex < highIndex) {
+            val result = numbers[lowIndex] + numbers[highIndex]
+            if (result == target) {
+                return intArrayOf(lowIndex + 1, highIndex + 1)
+            } else if (result < target) {
+                lowIndex++
+            } else {
+                highIndex--
+            }
+        }
+        return intArrayOf()
     }
 }
