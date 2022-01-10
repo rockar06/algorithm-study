@@ -2,7 +2,7 @@ package algorithms.easy
 
 // https://leetcode.com/problems/reverse-string/
 class ReverseStringSolution {
-    fun reverseString(s: CharArray) {
+    /*fun reverseString(s: CharArray) {
         reverseByPosition(
             s,
             s[0],
@@ -21,5 +21,15 @@ class ReverseStringSolution {
             charArray[charArray.size - (1 + (addingPosition + 1))],
             addingPosition + 1
         )
+    }*/
+
+    fun reverseString(s: CharArray) {
+        var counter = 0
+        while (counter < s.size / 2) {
+            val tempChar = s[s.size - 1 - counter]
+            s[s.size - 1 - counter] = s[counter]
+            s[counter] = tempChar
+            counter++
+        }
     }
 }
