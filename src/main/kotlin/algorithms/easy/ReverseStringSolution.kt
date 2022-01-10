@@ -24,12 +24,12 @@ class ReverseStringSolution {
     }*/
 
     fun reverseString(s: CharArray) {
-        var counter = 0
-        while (counter < s.size / 2) {
-            val tempChar = s[s.size - 1 - counter]
-            s[s.size - 1 - counter] = s[counter]
-            s[counter] = tempChar
-            counter++
+        var leftIndex = 0
+        var rightIndex = s.size - 1
+        while (leftIndex < rightIndex) {
+            val tempChar = s[rightIndex]
+            s[rightIndex--] = s[leftIndex]
+            s[leftIndex++] = tempChar
         }
     }
 }
