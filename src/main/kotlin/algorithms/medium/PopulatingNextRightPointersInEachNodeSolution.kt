@@ -15,9 +15,6 @@ class PopulatingNextRightPointersInEachNodeSolution {
 
             while (head != null) {
                 head.left?.next = head.right
-                /*head.next?.let {
-                    head?.right?.next = it.next?.left
-                }*/
                 head.right?.next = head.next?.left
                 head = head.next
             }
