@@ -4,6 +4,14 @@ package algorithms.easy
 class SingleNumberSolution {
 
     fun singleNumber(nums: IntArray): Int {
+        var result = nums.first()
+        for (index in 0 until nums.size - 1) {
+            result = result xor nums[index + 1]
+        }
+        return result
+    }
+
+    /*fun singleNumber(nums: IntArray): Int {
         if (nums.size == 1) return nums.first()
         val numberMap = hashMapOf<Int, Int>()
         nums.forEach {
@@ -13,5 +21,5 @@ class SingleNumberSolution {
             if (value == 1) return key
         }
         return 0
-    }
+    }*/
 }
