@@ -1,34 +1,34 @@
 package algorithms.medium
 
+import java.util.*
+
+
 class CombinationsSolution {
+
+    private val output: MutableList<List<Int>> = mutableListOf()
+    private var range = 0
+    private var combinations = 0
+
     fun combine(n: Int, k: Int): List<List<Int>> {
-        return combineNumbers(n, k)
+        range = n
+        combinations = k
+        backtrack(1, LinkedList())
+        return output
     }
 
-    private fun combineNumbers(
-        totalNumbers: Int,
-        maxCombinations: Int,
-        currentIndex: Int = 1,
-        itemNumber: Int = 0,
-        counterCombinations: Int = 0,
-        rowArray: MutableList<Int> = mutableListOf(),
-        resultArray: MutableList<List<Int>> = mutableListOf()
-    ): List<List<Int>> {
-        return if (currentIndex <= totalNumbers && counterCombinations < maxCombinations) {
-            rowArray.add(itemNumber + 1)
-            combineNumbers(totalNumbers, maxCombinations, currentIndex, itemNumber + 1, counterCombinations + 1, rowArray, resultArray)
-        } else if (currentIndex <= totalNumbers && counterCombinations == maxCombinations) {
-            resultArray.add(rowArray)
-            combineNumbers(totalNumbers, maxCombinations, currentIndex, itemNumber + 1, resultArray = resultArray)
-        } else if (currentIndex > totalNumbers) {
-            resultArray.add(rowArray)
-            combineNumbers(totalNumbers, maxCombinations, currentIndex + 1, resultArray = resultArray)
-        } else {
-            resultArray
+    private fun backtrack(first: Int, current: LinkedList<Int>) {
+        if (current.size == combinations) {
+            output.add(LinkedList(current))
+        }
+        for (index in first..range) {
+            current.add(index)
+            backtrack(index + 1, current)
+            current.removeLast()
         }
     }
 }
 
 fun main() {
     val result = CombinationsSolution().combine(4, 2)
+    result
 }
