@@ -22,7 +22,3 @@ class FirstBadVersionSolution {
         return version == 1
     }
 }
-
-fun main () {
-    val result = FirstBadVersionSolution().firstBadVersion(20)
-}
