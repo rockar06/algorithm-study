@@ -2,7 +2,7 @@ package algorithms.medium
 
 import java.util.*
 
-
+// https://leetcode.com/problems/combinations/
 class CombinationsSolution {
 
     private val output: MutableList<List<Int>> = mutableListOf()
@@ -26,9 +26,4 @@ class CombinationsSolution {
             current.removeLast()
         }
     }
-}
-
-fun main() {
-    val result = CombinationsSolution().combine(4, 2)
-    result
 }
