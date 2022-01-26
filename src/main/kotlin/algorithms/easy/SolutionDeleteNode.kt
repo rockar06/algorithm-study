@@ -2,7 +2,7 @@ package algorithms.easy
 
 import algorithms.common.ListNode
 
-object SolutionDeleteNode {
+class SolutionDeleteNode {
 
     fun deleteNode(node: ListNode?) {
         node!!.value = node.next!!.value

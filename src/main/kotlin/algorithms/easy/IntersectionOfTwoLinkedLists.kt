@@ -1,25 +1,10 @@
 package algorithms.easy
 
 import algorithms.common.ListNode
-import algorithms.easy.SolutionInterjection.getIntersectionNode
 
-fun main() {
-    val result = getIntersectionNode(linkedListA, linkedListD)
-    result
-}
-
-object SolutionInterjection {
+class SolutionInterjection {
 
     fun getIntersectionNode(headA: ListNode?, headB: ListNode?): ListNode? {
-        // concatenar los nodos
-        // headA + headB
-        // 12345 + 678945 = 12345678945678945678945678945678945678945678945678945678945678945678945678945678945678945
-
-        // 1-2-3-4-5
-        // 1-6-7-8-4-5
-
-        // abs(5 - 6)  = 1
-
 
         if (headA == null || headB == null) return null
         var isIntersected = false
@@ -63,33 +48,5 @@ object SolutionInterjection {
             tempHead = tempHead?.next
         }
         return tempHead
-    }
-}
-
-private val linkedListC = ListNode(8).apply {
-    next = ListNode(4).apply {
-        next = ListNode(5)
-    }
-}
-
-private val linkedListA = ListNode(4).apply {
-    next = ListNode(1).apply {
-        next = linkedListC
-    }
-}
-// 4-1-[8-4-5]
-
-private val linkedListB = ListNode(5).apply {
-    next = ListNode(6).apply {
-        next = ListNode(1).apply {
-            next = linkedListC
-        }
-    }
-}
-// 5-6-1-[8-4-5]
-
-private val linkedListD = ListNode(6).apply {
-    next = ListNode(1).apply {
-        next = linkedListC
     }
 }

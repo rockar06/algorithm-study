@@ -3,7 +3,7 @@ package algorithms.medium
 import algorithms.common.ListNode
 
 // https://leetcode.com/problems/next-greater-node-in-linked-list/
-object SolutionNextGreaterNodeInLinkedList {
+class SolutionNextGreaterNodeInLinkedList {
     fun nextLargerNodes(head: ListNode?): IntArray {
         var counter = 0
         var temp = head

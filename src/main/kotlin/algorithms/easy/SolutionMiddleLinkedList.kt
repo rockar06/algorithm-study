@@ -2,7 +2,7 @@ package algorithms.easy
 
 import algorithms.common.ListNode
 
-object SolutionMiddleLinkedList {
+class SolutionMiddleLinkedList {
 
     private var currentNodeCounter = 0
     private var middleNumber = 0

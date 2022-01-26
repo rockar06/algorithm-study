@@ -2,7 +2,7 @@ package algorithms.easy
 
 import algorithms.common.ListNode
 
-object SolutionReverseLinkedList {
+class SolutionReverseLinkedList {
 
     private var nodeHelper: ListNode? = null
 

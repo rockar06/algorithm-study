@@ -2,18 +2,16 @@ package algorithms.easy
 
 import algorithms.common.ListNode
 
-object SolutionConvertBinaryToDecimal {
+class SolutionConvertBinaryToDecimal {
 
-    private const val DEFAULT_VALUE = 0
-    private const val BASE_TWO = 2.toFloat()
-
+    private val defaultValue = 0
     private var powNumber = 0
 
     fun getDecimalValue(head: ListNode?): Int {
         return head?.next?.let {
             val previousSum = getDecimalValue(it)
             (previousSum + timesValue(head.value))
-        } ?: timesValue(head?.value ?: DEFAULT_VALUE)
+        } ?: timesValue(head?.value ?: defaultValue)
     }
 
     private fun timesValue(value: Int): Int {
