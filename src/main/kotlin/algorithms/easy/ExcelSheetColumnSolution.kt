@@ -48,8 +48,3 @@ class ExcelSheetColumnSolution {
         return convertToTitle(tempNumberA) + convertToTitle(tempNumberB)
     }
 }
-
-fun main() {
-    val result = ExcelSheetColumnSolution().convertToTitle(104)
-    result
-}
