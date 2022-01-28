@@ -1,5 +1,6 @@
 package algorithms.easy
 
+// https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
 class TwoSumIISolution {
     /*fun twoSum(numbers: IntArray, target: Int): IntArray {
         val resultArray = IntArray(2)
