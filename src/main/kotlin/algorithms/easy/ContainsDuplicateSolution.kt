@@ -7,10 +7,23 @@ class ContainsDuplicateSolution {
         val numbersMap = hashMapOf<Int, Int>()
         nums.forEach { value ->
             numbersMap[value] = (numbersMap[value] ?: 0) + 1
+            if (numbersMap[value] == null) {
+                numbersMap[value] = 1
+            } else {
+                return true
+            }
+        }
+        return false
+    }
+
+    /*fun containsDuplicate(nums: IntArray): Boolean {
+        val numbersMap = hashMapOf<Int, Int>()
+        nums.forEach { value ->
+            numbersMap[value] = (numbersMap[value] ?: 0) + 1
         }
         numbersMap.forEach { (_, value) ->
             if (value >= 2) return true
         }
         return false
-    }
+    }*/
 }
