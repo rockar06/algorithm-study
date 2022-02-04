@@ -4,13 +4,14 @@ package algorithms.easy
 class TwoSumSolution {
 
     fun twoSum(nums: IntArray, target: Int): IntArray {
-        val auxiliaryMap = HashMap<Int, Int>()
-        nums.forEachIndexed { index, value ->
-            if (auxiliaryMap.containsKey(target - value)) {
-                val firstIndex = auxiliaryMap[target - value]!!
-                return intArrayOf(firstIndex, index)
+        val helperMap = hashMapOf<Int, Int>()
+        nums.forEachIndexed { index, item ->
+            val complement = target - item
+            if (helperMap[complement] == null) {
+                helperMap[item] = index
+            } else {
+                return intArrayOf(helperMap.getOrDefault(complement, 0), index)
             }
-            auxiliaryMap[value] = index
         }
         return intArrayOf()
     }
