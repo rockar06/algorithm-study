@@ -2,13 +2,7 @@ package algorithms.easy
 
 import algorithms.common.ListNode
 
-fun main() {
-    val solution = Solution()
-    val result = solution.deleteDuplicatesIterative(sortedListNode)
-    result
-}
-
-class Solution {
+class RemoveDuplicatesFromSortedListSolution {
     fun deleteDuplicatesRecursive(head: ListNode?): ListNode? {
         return head?.let { currentNode ->
             currentNode.next?.let { nextNode ->
@@ -42,27 +36,5 @@ class Solution {
             current = current.next
         }
         return filteredList
-    }
-}
-
-private val sortedListNode = ListNode(1).apply {
-    next = ListNode(1).apply {
-        next = ListNode(2).apply {
-            next = ListNode(3).apply {
-                next = ListNode(3)
-            }
-        }
-    }
-}
-
-private val sortedBListNode = ListNode(1).apply {
-    next = ListNode(1).apply {
-        next = ListNode(2)
-    }
-}
-
-private val sortedCListNode = ListNode(1).apply {
-    next = ListNode(1).apply {
-        next = ListNode(1)
     }
 }

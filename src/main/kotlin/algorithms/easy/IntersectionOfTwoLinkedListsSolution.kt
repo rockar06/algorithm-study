@@ -2,7 +2,7 @@ package algorithms.easy
 
 import algorithms.common.ListNode
 
-class SolutionInterjection {
+class IntersectionOfTwoLinkedListsSolution {
 
     fun getIntersectionNode(headA: ListNode?, headB: ListNode?): ListNode? {
 

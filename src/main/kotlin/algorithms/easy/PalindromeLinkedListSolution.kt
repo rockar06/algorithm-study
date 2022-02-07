@@ -1,38 +1,9 @@
 package algorithms.easy
 
 import algorithms.common.ListNode
-import algorithms.easy.SolutionPalindromeLinkedList.isPalindrome
 
-fun main() {
-    val result = isPalindrome(notPalindromeListA)
-    println("Is Palindrome?: $result")
-}
+class PalindromeLinkedListSolution {
 
-private val palindromeListA = ListNode(1).apply {
-    next = ListNode(2).apply {
-        next = ListNode(3).apply {
-            next = ListNode(3).apply {
-                next = ListNode(2).apply {
-                    next = ListNode(1)
-                }
-            }
-        }
-    }
-}
-
-private val notPalindromeListA = ListNode(1).apply {
-    next = ListNode(2).apply {
-        next = ListNode(3).apply {
-            next = ListNode(4).apply {
-                next = ListNode(2).apply {
-                    next = ListNode(1)
-                }
-            }
-        }
-    }
-}
-
-object SolutionPalindromeLinkedList {
     fun isPalindrome(head: ListNode?): Boolean {
         var differenceDetected = false
         var editableHead = head

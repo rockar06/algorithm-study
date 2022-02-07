@@ -2,7 +2,7 @@ package algorithms.easy
 
 import algorithms.common.ListNode
 
-class SolutionLinkedListCycle {
+class LinkedListCycleSolution {
     fun hasCycle(head: ListNode?): Boolean {
         var hasCycle = false
         val hashNode = HashSet<ListNode>()

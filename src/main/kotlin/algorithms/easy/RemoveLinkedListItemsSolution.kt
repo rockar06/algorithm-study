@@ -2,7 +2,7 @@ package algorithms.easy
 
 import algorithms.common.ListNode
 
-class SolutionRemoveLinkedListItems {
+class RemoveLinkedListItemsSolution {
     fun removeElements(head: ListNode?, `val`: Int): ListNode? {
         var tempHead = head
         var filteredList: ListNode? = null
