@@ -2,6 +2,7 @@ package algorithms.easy
 
 import algorithms.common.ListNode
 
+// https://leetcode.com/problems/linked-list-cycle/
 class LinkedListCycleSolution {
     fun hasCycle(head: ListNode?): Boolean {
         var hasCycle = false
