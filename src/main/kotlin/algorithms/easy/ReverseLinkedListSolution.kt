@@ -12,9 +12,10 @@ class ReverseLinkedListSolution {
             if (result == null) {
                 result = ListNode(temp.value)
             } else {
-                val tempNode = ListNode(temp.value)
-                tempNode.next = result
-                result = tempNode
+                ListNode(temp.value).apply {
+                    next = result
+                    result = this
+                }
             }
             temp = temp.next
         }
