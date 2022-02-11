@@ -2,6 +2,7 @@ package algorithms.easy
 
 import algorithms.common.ListNode
 
+// https://leetcode.com/problems/remove-linked-list-elements/
 class RemoveLinkedListItemsSolution {
     fun removeElements(head: ListNode?, `val`: Int): ListNode? {
         var tempHead = head
