@@ -5,23 +5,22 @@ import java.util.*
 //https://leetcode.com/problems/valid-parentheses/submissions/
 class ValidParenthesesSolution {
     fun isValid(s: String): Boolean {
-        val stackChar = Stack<Char>()
-        var index = 0
-        while (index < s.length) {
-            if (s[index] == '(' || s[index] == '[' || s[index] == '{') {
-                stackChar.push(s[index])
-                index++
-            } else if (stackChar.isNotEmpty() && (s[index] == ')' && stackChar.peek() == '('
-                        || s[index] == ']' && stackChar.peek() == '['
-                        || s[index] == '}' && stackChar.peek() == '{')
-            ) {
-                stackChar.pop()
-                index++
+        val stackHelper = Stack<Char>()
+        s.forEach {
+            if (it == '(' || it == '{' || it == '[') {
+                stackHelper.push(it)
             } else {
-                stackChar.push(s[index])
-                index = s.length
+                if (stackHelper.isEmpty()) return false
+                if (it == ')' && stackHelper.peek() == '(' ||
+                    it == '}' && stackHelper.peek() == '{' ||
+                    it == ']' && stackHelper.peek() == '['
+                ) {
+                    stackHelper.pop()
+                } else {
+                    return false
+                }
             }
         }
-        return stackChar.isEmpty()
+        return stackHelper.isEmpty()
     }
 }
