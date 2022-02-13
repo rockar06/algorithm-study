@@ -19,7 +19,7 @@ class MaximumDepthOfBinaryTreeSolution {
             maxDepth(root.right)
         } ?: 0
 
-        maxDepth += if (leftCounter > rightCounter) leftCounter else rightCounter
+        maxDepth += Math.max(leftCounter, rightCounter)
         return maxDepth
     }
 }
