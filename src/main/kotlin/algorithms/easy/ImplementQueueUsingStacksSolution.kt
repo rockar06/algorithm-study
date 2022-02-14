@@ -40,9 +40,6 @@ class ImplementQueueUsingStacksSolution {
     }
 
     fun peek(): Int {
-        reverseStack.forEach {
-            it
-        }
         return reverseStack.peek()
     }
 
