@@ -1,14 +1,8 @@
 package algorithms.medium
 
 import algorithms.common.ListNode
-import algorithms.medium.SolutionMergeInBetweenLinkedList.mergeInBetween
 
-fun main() {
-    val result = mergeInBetween(linkedListA, 3, 4, linkedListC)
-    result
-}
-
-object SolutionMergeInBetweenLinkedList {
+class SolutionMergeInBetweenLinkedList {
     fun mergeInBetween(list1: ListNode?, a: Int, b: Int, list2: ListNode?): ListNode? {
         var tempA = a
         var tempB = b - a
@@ -38,33 +32,5 @@ object SolutionMergeInBetweenLinkedList {
         // Reference remaining list1 nodes in the tail of list2
         list2Tail?.next = finishReplace
         return list1
-    }
-}
-
-private val linkedListA = ListNode(0).apply {
-    next = ListNode(1).apply {
-        next = ListNode(2).apply {
-            next = ListNode(3).apply {
-                next = ListNode(4).apply {
-                    next = ListNode(5)
-                }
-            }
-        }
-    }
-}
-
-private val linkedListB = ListNode(1000000).apply {
-    next = ListNode(1000001).apply {
-        next = ListNode(1000002).apply {
-            next = ListNode(1000003).apply {
-                next = ListNode(1000004)
-            }
-        }
-    }
-}
-
-private val linkedListC = ListNode(1000000).apply {
-    next = ListNode(1000001).apply {
-        next = ListNode(1000002)
     }
 }
