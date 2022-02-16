@@ -2,17 +2,6 @@ package algorithms.medium
 
 import algorithms.common.DoubleListNode
 
-fun main() {
-    val browserHistory = BrowserHistory("google")
-    browserHistory.visit("facebook")
-    browserHistory.visit("amazon")
-    browserHistory.visit("walmart")
-    browserHistory.visit("stackoverflow")
-    browserHistory.back(5)
-    browserHistory.forward(5)
-}
-
-// https://leetcode.com/problems/swapping-nodes-in-a-linked-list/
 class BrowserHistory(homepage: String) {
 
     private val stackHistory: DoubleListNode<String> = DoubleListNode(homepage)
