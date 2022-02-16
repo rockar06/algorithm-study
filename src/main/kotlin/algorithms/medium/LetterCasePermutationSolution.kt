@@ -37,7 +37,3 @@ class LetterCasePermutationSolution {
         }
     }
 }
-
-fun main() {
-    val result = LetterCasePermutationSolution().letterCasePermutation("3z4")
-}
