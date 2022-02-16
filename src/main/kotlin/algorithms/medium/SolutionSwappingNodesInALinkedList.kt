@@ -3,7 +3,7 @@ package algorithms.medium
 import algorithms.common.ListNode
 
 // https://leetcode.com/problems/swapping-nodes-in-a-linked-list/
-object Solution {
+class Solution {
     fun swapNodes(head: ListNode?, k: Int): ListNode? {
         val arrayOfNodes = convertListNodeIntoArray(head)
         swapItemsInArray(arrayOfNodes, k)
