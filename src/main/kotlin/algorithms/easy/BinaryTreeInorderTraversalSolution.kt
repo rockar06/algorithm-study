@@ -10,18 +10,10 @@ class BinaryTreeInorderTraversalSolution {
 
     fun inorderTraversal(root: TreeNode?): List<Int> {
         root?.let {
-            addItemToList(it)
+            inorderTraversal(it.left)
+            result.add(it.`val`)
+            inorderTraversal(it.right)
         }
         return result
-    }
-
-    private fun addItemToList(node: TreeNode) {
-        node.left?.let {
-            addItemToList(it)
-        }
-        result.add(node.`val`)
-        node.right?.let {
-            addItemToList(it)
-        }
     }
 }
