@@ -3,12 +3,12 @@ package algorithms.easy
 // https://leetcode.com/problems/valid-palindrome/submissions/
 class ValidPalindromeSolution {
     fun isPalindrome(s: String): Boolean {
-        val lowerCaseRange = 65..90
-        val upperCaseRange = 97..122
-        val digitsRange = 48..57
+        val lowerCaseRange = 'a'..'z'
+        val upperCaseRange = 'A'..'Z'
+        val digitsRange = '0'..'9'
         val cleanString = StringBuilder()
         s.forEach {
-            if (it.code in lowerCaseRange || it.code in upperCaseRange || it.code in digitsRange) {
+            if (it in lowerCaseRange || it in upperCaseRange || it in digitsRange) {
                 cleanString.append(it.lowercaseChar())
             }
         }
