@@ -1,32 +1,28 @@
 package algorithms.easy
 
+import java.lang.Character.getNumericValue
+
 // https://leetcode.com/problems/add-strings/
 class AddStringsSolution {
 
     fun addStrings(num1: String, num2: String): String {
-        var valueA = num1
-        var valueB = num2
+        var counterA = num1.length - 1
+        var counterB = num2.length - 1
         val stringBuilder = StringBuilder()
-        val maxLength = Math.max(valueA.length, valueB.length)
         var carry = 0
 
-        val differenceInLength = Math.abs(valueA.length - valueB.length)
-        if (valueA.length > valueB.length) {
-            valueB = valueB.padStart(differenceInLength + valueB.length, ' ')
-        } else {
-            valueA = valueA.padStart(differenceInLength + valueA.length, ' ')
-        }
-
-        for (index in maxLength - 1 downTo 0) {
-            val result = if (valueA[index] == ' ') {
-                performAdd(0, Character.getNumericValue(valueB[index]), carry)
-            } else if (valueB[index] == ' ') {
-                performAdd(Character.getNumericValue(valueA[index]), 0, carry)
+        while (counterA >= 0 || counterB >= 0) {
+            val result = if (counterA < 0) {
+                performAdd(0, getNumericValue(num2[counterB]), carry)
+            } else if (counterB < 0) {
+                performAdd(getNumericValue(num1[counterA]), 0, carry)
             } else {
-                performAdd(Character.getNumericValue(valueA[index]), Character.getNumericValue(valueB[index]), carry)
+                performAdd(getNumericValue(num1[counterA]), getNumericValue(num2[counterB]), carry)
             }
             carry = result.first
             stringBuilder.append(result.second)
+            counterA--
+            counterB--
         }
 
         if (carry > 0) {
