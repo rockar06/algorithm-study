@@ -1,7 +1,7 @@
 package algorithms.easy
 
 // https://leetcode.com/problems/valid-palindrome-ii/
-class ValidPalindromeII {
+class ValidPalindromeIISolution {
     fun validPalindrome(s: String, skippedCounter: Int = 0): Boolean {
         var leftCounter = 0
         var rightCounter = s.length - 1
