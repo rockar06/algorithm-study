@@ -4,17 +4,18 @@ package algorithms.medium
 class FindPeakElementSolution {
 
     fun findPeakElement(nums: IntArray): Int {
-        if (nums.size == 1) return 0
-        for (index in nums.indices step 2) {
-            if (validateNumber(nums, index)) {
-                return index
-            }
-        }
+        var leftIndex = 0
+        var rightIndex = nums.lastIndex
 
-        for (index in 1 until nums.size step 2) {
-            if (validateNumber(nums, index)) {
-                return index
+        while (leftIndex <= rightIndex) {
+            if (validateNumber(nums, leftIndex)) {
+                return leftIndex
             }
+            if (validateNumber(nums, rightIndex)) {
+                return rightIndex
+            }
+            leftIndex++
+            rightIndex--
         }
         return 0
     }
