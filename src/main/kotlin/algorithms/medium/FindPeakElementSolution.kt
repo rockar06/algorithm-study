@@ -4,6 +4,7 @@ package algorithms.medium
 class FindPeakElementSolution {
 
     fun findPeakElement(nums: IntArray): Int {
+        if (nums.size == 1) return 0
         var leftIndex = 0
         var rightIndex = nums.lastIndex
 
