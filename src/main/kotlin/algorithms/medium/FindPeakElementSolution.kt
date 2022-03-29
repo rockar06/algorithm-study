@@ -29,10 +29,3 @@ class FindPeakElementSolution {
         }
     }
 }
-
-fun main() {
-    //val testCase = intArrayOf(1,2,1,3,5,6,4)
-    val testCase = intArrayOf(1)
-    val result = FindPeakElementSolution().findPeakElement(testCase)
-    result
-}
