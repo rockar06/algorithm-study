@@ -13,16 +13,14 @@ class AddStringsSolution {
 
         while (counterA >= 0 || counterB >= 0) {
             val result = if (counterA < 0) {
-                performAdd(0, getNumericValue(num2[counterB]), carry)
+                performAdd(0, getNumericValue(num2[counterB--]), carry)
             } else if (counterB < 0) {
-                performAdd(getNumericValue(num1[counterA]), 0, carry)
+                performAdd(getNumericValue(num1[counterA--]), 0, carry)
             } else {
-                performAdd(getNumericValue(num1[counterA]), getNumericValue(num2[counterB]), carry)
+                performAdd(getNumericValue(num1[counterA--]), getNumericValue(num2[counterB--]), carry)
             }
             carry = result.first
             stringBuilder.append(result.second)
-            counterA--
-            counterB--
         }
 
         if (carry > 0) {
@@ -32,9 +30,9 @@ class AddStringsSolution {
     }
 
     private fun performAdd(firstNumber: Int, secondNumber: Int, carry: Int): Pair<Int, Int> {
-        val add = firstNumber + secondNumber + carry
-        val newCarry = add / 10
-        val value = add % 10
-        return Pair(newCarry, value)
+        var resultSum = firstNumber + secondNumber + carry
+        val newCarry = resultSum / 10
+        resultSum %= 10
+        return Pair(newCarry, resultSum)
     }
 }
