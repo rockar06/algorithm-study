@@ -4,7 +4,8 @@ package algorithms.easy
 class FibonacciNumberSolution {
 
     fun fib(n: Int): Int {
-        val result = IntArray(n)
+        if (n == 0) return 0
+        val result = IntArray(n + 1)
         result[0] = 0
         result[1] = 1
         for (index in 2..n) {
