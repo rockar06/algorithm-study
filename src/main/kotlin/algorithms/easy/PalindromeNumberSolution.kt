@@ -1,15 +1,14 @@
 package algorithms.easy
 
+// https://leetcode.com/problems/palindrome-number
 class PalindromeNumberSolution {
 
     fun isPalindrome(x: Int): Boolean {
-        if (x < 0) return false
-        var aux = x
+        var newValue = x
         var result = 0
-        while (aux != 0) {
-            result *= 10
-            result += aux % 10
-            aux /= 10
+        while (newValue > 0) {
+            result =+ (result * 10) + (newValue % 10)
+            newValue /= 10
         }
         return result == x
     }
