@@ -3,6 +3,32 @@ package algorithms.easy
 // https://leetcode.com/problems/longest-common-prefix/
 class LongestCommonPrefixSolution {
     fun longestCommonPrefix(strs: Array<String>): String {
+        if (strs.size == 1) return strs.first()
+        val result = StringBuilder()
+        var charCounter = 0
+        while (true) {
+            strs.forEachIndexed { index, character ->
+                if (character.isEmpty()) {
+                    return ""
+                }
+                if (charCounter >= character.length) {
+                    if (index > 0) {
+                        result.deleteCharAt(charCounter)
+                    }
+                    return result.toString()
+                }
+                if (index == 0) {
+                    result.append(character[charCounter])
+                } else if (character.getOrNull(charCounter) != result.last()) {
+                    result.deleteCharAt(charCounter)
+                    return result.toString()
+                }
+            }
+            charCounter++
+        }
+    }
+
+    /*fun longestCommonPrefix(strs: Array<String>): String {
         val resultString = StringBuilder()
         var charIndex = 0
         var index = 0
@@ -25,5 +51,5 @@ class LongestCommonPrefixSolution {
             }
         }
         return resultString.toString()
-    }
+    }*/
 }
