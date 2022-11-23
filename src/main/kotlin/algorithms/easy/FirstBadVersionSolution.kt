@@ -2,7 +2,7 @@ package algorithms.easy
 
 // https://leetcode.com/problems/first-bad-version/
 class FirstBadVersionSolution {
-    fun firstBadVersion(n: Int): Int {
+    /*fun firstBadVersion(n: Int): Int {
         return findBadVersion(1, n)
     }
 
@@ -16,6 +16,21 @@ class FirstBadVersionSolution {
         } else {
             findBadVersion(middle, max)
         }
+    }*/
+
+    fun firstBadVersion(n: Int): Int {
+        var leftPointer = 1
+        var rightPointer = n
+        while (leftPointer < rightPointer) {
+            val pivot = leftPointer + (rightPointer - leftPointer) / 2
+
+            if (isBadVersion(pivot)) {
+                rightPointer = pivot
+            } else {
+                leftPointer = pivot + 1
+            }
+        }
+        return rightPointer
     }
 
     fun isBadVersion(version: Int): Boolean {
