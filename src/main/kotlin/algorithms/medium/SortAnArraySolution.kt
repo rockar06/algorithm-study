@@ -7,6 +7,7 @@ class SortAnArraySolution {
         return mergeSort(nums, 0, nums.size - 1)
     }
 
+    // Start Merge Sort
     private fun mergeSort(arrayToSort: IntArray, leftPointer: Int, rightPointer: Int): IntArray {
         if (leftPointer == rightPointer) {
             return intArrayOf(arrayToSort[leftPointer])
@@ -57,5 +58,36 @@ class SortAnArraySolution {
 
         return sortedArray
     }
+    // End merge sort
 
+    // Start quick sort
+    private fun quickSort(arrayToSort: IntArray, leftPointer: Int, rightPointer: Int) {
+        val pivot = arrayToSort[leftPointer]
+        var currentLeftPointer = leftPointer
+        var currentRightPointer = rightPointer
+        var auxiliarySlot: Int
+
+        while (currentLeftPointer < currentRightPointer) {
+            while (arrayToSort[currentLeftPointer] <= pivot && currentLeftPointer < currentRightPointer) currentLeftPointer++
+            while (arrayToSort[currentRightPointer] > pivot) currentRightPointer--
+
+            if (currentLeftPointer < currentRightPointer) {
+                auxiliarySlot = arrayToSort[currentLeftPointer]
+                arrayToSort[currentLeftPointer] = arrayToSort[currentRightPointer]
+                arrayToSort[currentRightPointer] = auxiliarySlot
+            }
+        }
+
+        arrayToSort[leftPointer] = arrayToSort[currentRightPointer]
+        arrayToSort[currentRightPointer] = pivot
+
+        if (leftPointer < currentRightPointer - 1) {
+            quickSort(arrayToSort, leftPointer, currentRightPointer - 1)
+        }
+
+        if (currentRightPointer + 1 < rightPointer) {
+            quickSort(arrayToSort, currentRightPointer + 1, rightPointer)
+        }
+    }
+    // End quick sort
 }
