@@ -7,7 +7,7 @@ class MaximumDepthOfBinaryTreeSolution {
 
     fun maxDepth(root: TreeNode?, depthValue: Int? = null): Int {
         return root?.let {
-            1 + Math.max(algorithms.maxDepth(it.left), algorithms.maxDepth(it.right))
+            1 + Math.max(maxDepth(it.left), maxDepth(it.right))
         } ?: 0
     }
 }
