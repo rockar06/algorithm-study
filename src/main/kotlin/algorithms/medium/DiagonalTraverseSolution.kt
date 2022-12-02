@@ -44,19 +44,3 @@ class DiagonalTraverseSolution {
         return result
     }
 }
-
-fun main() {
-    /*val test = arrayOf(
-        intArrayOf(1, 2, 3),
-        intArrayOf(4, 5, 6),
-        intArrayOf(7, 8, 9)
-    )*/
-    /*val test = arrayOf(
-        intArrayOf(1)
-    )*/
-    val test = arrayOf(
-        intArrayOf(2,3)
-    )
-    val result = DiagonalTraverseSolution().findDiagonalOrder(test)
-    result
-}
