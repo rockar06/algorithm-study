@@ -18,7 +18,6 @@ class ContainsDuplicateSolution {
     /*fun containsDuplicate(nums: IntArray): Boolean {
         val numbersMap = hashMapOf<Int, Int>()
         nums.forEach { value ->
-            numbersMap[value] = (numbersMap[value] ?: 0) + 1
             if (numbersMap[value] == null) {
                 numbersMap[value] = 1
             } else {
