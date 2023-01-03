@@ -5,25 +5,27 @@ class MinimumSizeSubarraySumSolution {
 
     fun minSubArrayLen(target: Int, nums: IntArray): Int {
         var leftPointer = 0
-        var rightPointer = -1
-        var currentSum = 0
-        var minimumSize = 0
+        var rightPointer = 0
+        var totalSum = 0
+        var lengthResult = 0
+
         while (leftPointer < nums.size) {
-            if (currentSum >= target) {
-                minimumSize = if (minimumSize == 0) {
-                    (rightPointer + 1) - leftPointer
+            if (totalSum >= target) {
+                lengthResult = if (lengthResult == 0) {
+                    rightPointer - leftPointer
                 } else {
-                    Math.min((rightPointer + 1) - leftPointer, minimumSize)
+                    Math.min(lengthResult, rightPointer - leftPointer)
                 }
-                currentSum -= nums[leftPointer++]
+                totalSum -= nums[leftPointer++]
             } else {
-                if (rightPointer < nums.size - 1) {
-                    currentSum += nums[++rightPointer]
+                if (rightPointer <= nums.lastIndex) {
+                    totalSum += nums[rightPointer++]
                 } else {
                     leftPointer++
                 }
             }
         }
-        return minimumSize
+
+        return lengthResult
     }
 }
