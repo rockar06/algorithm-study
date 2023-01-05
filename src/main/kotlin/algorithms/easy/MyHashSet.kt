@@ -1,72 +1,51 @@
 package algorithms.easy
 
-import algorithms.common.ListNode
+import java.util.*
 
+// https://leetcode.com/problems/design-hashset
 class MyHashSet() {
 
-    /** Initialize your data structure here. */
-    private var rootNode: ListNode? = null
-
-    fun add(key: Int) {
-        rootNode?.let {
-            insertNewNode(key, it)
-        } ?: run {
-            rootNode = ListNode(key)
-        }
+    private val keyRange = 769
+    private val bucketArray = Array(keyRange) {
+        BucketSet()
     }
 
-    private fun insertNewNode(key: Int, head: ListNode) {
-        when {
-            head.value == key -> {
-                return
-            }
-            head.next != null -> {
-                insertNewNode(key, head.next!!)
-            }
-            else -> {
-                head.next = ListNode(key)
-            }
-        }
+    private fun hash(key: Int) : Int {
+        return key % keyRange
+    }
+
+    fun add(key: Int) {
+        val bucketIndex = hash(key)
+        bucketArray[bucketIndex].insert(key)
     }
 
     fun remove(key: Int) {
-        rootNode?.let {
-            rootNode = removeExistingNode(key, it)
-        }
+        val bucketIndex = hash(key)
+        bucketArray[bucketIndex].delete(key)
     }
 
-    private fun removeExistingNode(key: Int, head: ListNode?): ListNode? {
-        return head?.let {
-            when (head.value) {
-                key -> {
-                    head.next?.let {
-                        return ListNode(it.value).apply {
-                            next = it.next
-                        }
-                    }
-                }
-                else -> {
-                    ListNode(head.value).apply {
-                        next = removeExistingNode(key, head.next)
-                    }
-                }
-            }
-        }
-    }
-
-    /** Returns true if this set contains the specified element */
     fun contains(key: Int): Boolean {
-        return rootNode?.let {
-            searchForKey(key, it)
-        } ?: false
+        val bucketIndex = hash(key)
+        return bucketArray[bucketIndex].exists(key)
+    }
+}
+
+class BucketSet {
+
+    private val container = LinkedList<Int>()
+
+    fun insert(key: Int) {
+        val index = container.indexOf(key)
+        if (index == -1) {
+            container.addFirst(key)
+        }
     }
 
-    private fun searchForKey(key: Int, head: ListNode): Boolean {
-        return head.next?.let {
-            when (head.value) {
-                key -> true
-                else -> searchForKey(key, head.next!!)
-            }
-        } ?: false
+    fun delete(key: Int) {
+        container.remove(key)
+    }
+
+    fun exists(key: Int): Boolean {
+        return container.indexOf(key) != -1
     }
 }
