@@ -4,16 +4,17 @@ package algorithms.easy
 class IntersectionOfTwoArraysSolution {
 
     fun intersection(nums1: IntArray, nums2: IntArray): IntArray {
-        val integerMapper = hashMapOf<Int, Boolean>()
-        val intersectionArray = mutableSetOf<Int>()
+        val integerMapper = hashSetOf<Int>()
+        val intersectionArray = arrayListOf<Int>()
 
         nums1.forEach {
-            integerMapper[it] = true
+            integerMapper.add(it)
         }
 
         nums2.forEach {
-            if (integerMapper[it] == true) {
+            if (integerMapper.contains(it)) {
                 intersectionArray.add(it)
+                integerMapper.remove(it)
             }
         }
         return intersectionArray.toIntArray()
