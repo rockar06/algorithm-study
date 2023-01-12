@@ -23,4 +23,26 @@ class IntersectionOfTwoArraysIISolution {
         }
         return result
     }
+
+    /*fun intersect(nums1: IntArray, nums2: IntArray): IntArray {
+        val mapOfOccurrences = hashMapOf<Int, Int>()
+        nums1.forEach {
+            if (mapOfOccurrences[it] == null) {
+                mapOfOccurrences[it] = 1
+            } else {
+                mapOfOccurrences[it] = mapOfOccurrences.getOrDefault(it, 0) + 1
+            }
+        }
+
+        val resultArray = arrayListOf<Int>()
+
+        nums2.forEach {
+            if (mapOfOccurrences[it] != null && mapOfOccurrences.getOrDefault(it, 0) > 0) {
+                resultArray.add(it)
+                mapOfOccurrences[it] = mapOfOccurrences.getOrDefault(it, 0) - 1
+            }
+        }
+
+        return resultArray.toIntArray()
+    }*/
 }
