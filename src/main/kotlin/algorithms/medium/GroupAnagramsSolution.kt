@@ -3,7 +3,7 @@ package algorithms.medium
 // https://leetcode.com/problems/group-anagrams
 class GroupAnagramsSolution {
 
-    fun groupAnagrams(strs: Array<String>): List<List<String>> {
+    /*fun groupAnagrams(strs: Array<String>): List<List<String>> {
         val mapResult = hashMapOf<String, MutableList<String>>()
         strs.forEach { currentString ->
             val stringAnagramHash = mapStringToIntArray(currentString)
@@ -28,5 +28,21 @@ class GroupAnagramsSolution {
             result[it - 'a']++
         }
         return result.contentToString()
+    }*/
+
+    fun groupAnagrams(strs: Array<String>): List<List<String>> {
+        val hashMapOfAnagrams = hashMapOf<String, MutableList<String>>()
+        strs.forEach {
+            val hashKey = String(it.toCharArray().sortedArray())
+            if (hashMapOfAnagrams[hashKey] == null) {
+                hashMapOfAnagrams[hashKey] = mutableListOf(it)
+            } else {
+                hashMapOfAnagrams[hashKey]?.add(it)
+            }
+        }
+
+        return hashMapOfAnagrams.map {
+            it.value
+        }
     }
 }
