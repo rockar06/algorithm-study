@@ -37,4 +37,24 @@ class ContainsDuplicateIISolution {
         }
         return false
     }
+
+    /*fun containsNearbyDuplicate(nums: IntArray, k: Int): Boolean {
+        val numbersMapper = hashMapOf<Int, Int>()
+
+        nums.forEachIndexed { index, value ->
+            if (numbersMapper[value] == null) {
+                numbersMapper[value] = index
+            } else {
+                val lastIndex = numbersMapper.getOrDefault(value, 0)
+                val absoluteResult = Math.abs(lastIndex - index)
+                if (absoluteResult <= k) {
+                    return true
+                } else {
+                    numbersMapper[value] = index
+                }
+            }
+        }
+
+        return false
+    }*/
 }
