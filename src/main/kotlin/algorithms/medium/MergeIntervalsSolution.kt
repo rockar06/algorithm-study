@@ -1,5 +1,7 @@
 package algorithms.medium
 
+import java.util.*
+
 // https://leetcode.com/problems/merge-intervals/
 class MergeIntervalsSolution {
 
@@ -7,31 +9,17 @@ class MergeIntervalsSolution {
         intervals.sortBy {
             it.first()
         }
-        var completed = false
-        var result = intervals
 
-        while (completed.not()) {
-            completed = true
-            val tempArray = arrayListOf<IntArray>()
-            result.forEach {
-                if (tempArray.isNotEmpty() && tempArray.last().last() >= it.first() &&
-                    tempArray.last().first() <= it.last()
-                ) {
-                    val temp = tempArray.removeAt(tempArray.lastIndex)
-                    tempArray.add(
-                        intArrayOf(
-                            Math.min(temp.first(), it.first()),
-                            Math.max(temp.last(), it.last())
-                        )
-                    )
-                    completed = false
-                } else {
-                    tempArray.add(it)
-                }
+        val result = LinkedList<IntArray>()
+
+        intervals.forEach {
+            if (result.isEmpty() || result.last.last() < it.first()) {
+                result.add(it)
+            } else {
+                result.last[1] = Math.max(result.last.last(), it.last())
             }
-            result = tempArray.toTypedArray()
         }
 
-        return result
+        return result.toTypedArray()
     }
 }
