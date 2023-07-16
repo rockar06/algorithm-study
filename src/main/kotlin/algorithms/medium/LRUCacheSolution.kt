@@ -1,5 +1,6 @@
 package algorithms.medium
 
+// https://leetcode.com/problems/lru-cache/
 class LRUCache(private val capacity: Int): LinkedHashMap<Int, Int>(5, 0.75f, true) {
 
     override fun get(key: Int): Int {
