@@ -19,14 +19,11 @@ class MinimumRemoveToMakeValidParenthesesSolution {
             return s
         }
 
-        val result = StringBuilder()
-        val helperQueue: Queue<Int> = LinkedList(helperStack)
+        val result = StringBuilder(s)
 
-        s.forEachIndexed { index, value ->
-            if (index == helperQueue.peek()) {
-                helperQueue.poll()
-            } else {
-                result.append(value)
+        for (index in result.lastIndex downTo 0) {
+            if (helperStack.isNotEmpty() && helperStack.peek() == index) {
+                result.deleteCharAt(helperStack.pop())
             }
         }
 
