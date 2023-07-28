@@ -6,27 +6,30 @@ import java.util.*
 class MinimumRemoveToMakeValidParenthesesSolution {
 
     fun minRemoveToMakeValid(s: String): String {
-        val result = StringBuilder(s)
-        val helperStack = Stack<Pair<Char, Int>>()
-        result.forEachIndexed { index, character ->
-            if (character == '(') {
-                helperStack.push(Pair(character, index))
-            }
-            if (character == ')') {
-                if (helperStack.isNotEmpty() && helperStack.peek().first == '(') {
-                    helperStack.pop()
-                } else {
-                    helperStack.push(Pair(character, index))
-                }
+        val helperStack = Stack<Int>()
+        s.forEachIndexed { index, value ->
+            if (value == ')' && helperStack.isNotEmpty() && s[helperStack.peek()] == '(') {
+                helperStack.pop()
+            } else if (value == '(' || value == ')') {
+                helperStack.push(index)
             }
         }
 
-        for (index in result.lastIndex downTo 0) {
-            if (helperStack.isNotEmpty() && helperStack.peek().second == index) {
-                result[helperStack.pop().second] = '_'
+        if (helperStack.isEmpty()) {
+            return s
+        }
+
+        val result = StringBuilder()
+        val helperQueue: Queue<Int> = LinkedList(helperStack)
+
+        s.forEachIndexed { index, value ->
+            if (index == helperQueue.peek()) {
+                helperQueue.poll()
+            } else {
+                result.append(value)
             }
         }
 
-        return result.toString().replace("_", "")
+        return result.toString()
     }
 }
