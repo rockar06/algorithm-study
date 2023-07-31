@@ -3,13 +3,10 @@ package algorithms.easy
 // https://leetcode.com/problems/valid-palindrome/submissions/
 class ValidPalindromeSolution {
     fun isPalindrome(s: String): Boolean {
-        val lowerCaseRange = 'a'..'z'
-        val upperCaseRange = 'A'..'Z'
-        val digitsRange = '0'..'9'
-        val cleanString = StringBuilder()
+        val cleanString = arrayListOf<Char>()
         s.forEach {
-            if (it in lowerCaseRange || it in upperCaseRange || it in digitsRange) {
-                cleanString.append(it.lowercaseChar())
+            if (it.isLetterOrDigit()) {
+                cleanString.add(it.lowercaseChar())
             }
         }
 
@@ -17,7 +14,7 @@ class ValidPalindromeSolution {
             return true
         }
 
-        val totalSize = cleanString.length - 1
+        val totalSize = cleanString.lastIndex
         var index = 0
         while (index <= totalSize / 2) {
             if (cleanString[index] != cleanString[totalSize - index]) {
