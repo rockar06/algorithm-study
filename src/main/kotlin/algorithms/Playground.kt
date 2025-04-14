@@ -1,5 +1,5 @@
 package algorithms
 
-fun main(args: Array<String>) {
+fun main() {
     println("Hello, world!")
 }
